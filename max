@@ -1,0 +1,23 @@
+def max_of_columns(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    column_max = [float('-inf')] * cols
+
+    for row in matrix:
+        for col, val in enumerate(row):
+            column_max[col] = max(column_max[col], int(val))
+
+    return column_max
+
+# Reading input
+n = int(input())  # Assuming n is the number of rows
+matrix = []
+for _ in range(n):
+    row = input().split()
+    matrix.append(row)
+
+# Calculating and printing maximum of each column
+result = max_of_columns(matrix)
+for val in result:
+    print(val, end=" ")
